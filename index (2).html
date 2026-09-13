@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHICAGOLAND TRAILS ARCHIVE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'swiss-orange': '#E34234',
+                        'swiss-black': '#111111',
+                        'swiss-white': '#F9F9F9'
+                    },
+                    fontFamily: {
+                        sans: ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+                        mono: ['"Courier New"', 'Courier', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F9F9F9;
+            color: #111111;
+            font-smoothing: antialiased;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Enforce strict tabular borders */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        th, td {
+            border: 2px solid #111111;
+        }
+        
+        /* Custom selection color */
+        ::selection {
+            background-color: #E34234;
+            color: #F9F9F9;
+        }
+
+        /* Hide scrollbar for cleaner brutalist look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F9F9F9;
+            border-left: 2px solid #111111;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #111111;
+        }
+
+        /* SVG Map Interactivity Styles */
+        .map-region {
+            fill: #F9F9F9;
+            stroke: #111111;
+            stroke-width: 4;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .map-region:hover {
+            fill: #111111;
+        }
+
+        .map-region:hover + .region-label,
+        .region-label:hover {
+            fill: #F9F9F9;
+            pointer-events: none;
+        }
+
+        .region-label {
+            fill: #111111;
+            font-weight: bold;
+            font-size: 24px;
+            text-anchor: middle;
+            dominant-baseline: middle;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: fill 0.2s ease;
+            pointer-events: none;
+        }
+        
+        /* Utility classes for SPA view switching */
+        .view-hidden {
+            display: none !important;
+        }
+
+        /* Hyperlink styling for table */
+        .swiss-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            color: #111111;
+            text-decoration: none;
+            border-bottom: 2px solid #111111;
+            transition: all 0.2s ease;
+            font-weight: 700;
+        }
+        
+        .swiss-link:hover {
+            background-color: #E34234;
+            color: #F9F9F9;
+            border-bottom-color: #E34234;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 min-h-screen flex flex-col font-sans">
+
+    <header class="mb-8 border-b-4 border-swiss-black pb-8">
+        <div class="flex flex-col md:flex-row md:items-start justify-between gap-6">
+            <div>
+                <h1 class="text-4xl md:text-7xl lg:text-8xl font-bold tracking-tighter uppercase mb-2 leading-none" id="main-title">
+                    Where Do<br />You Want<br />To Bike?
+                </h1>
+            </div>
+            <div class="flex flex-col items-center justify-end text-swiss-black">
+                <!-- Minimalistic Bike Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter">
+                    <circle cx="5.5" cy="17.5" r="3.5"></circle>
+                    <circle cx="18.5" cy="17.5" r="3.5"></circle>
+                    <path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 11.5V14l-3-3 4-3 2 3h2"></path>
+                </svg>
+                <span class="text-sm font-bold font-mono tracking-widest uppercase mt-2">Chicagoland</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex flex-col">
+        <section id="view-map" class="flex-grow flex flex-col items-center justify-center w-full max-w-5xl mx-auto my-8">
+            <div class="w-full aspect-[4/3] max-h-[70vh] relative">
+                <svg viewBox="0 0 800 600" class="w-full h-full drop-shadow-xl" preserveAspectRatio="xMidYMid meet">
+                    <!-- North Suburbs -->
+                    <g onclick="showRegion('north')">
+                        <rect x="20" y="20" width="480" height="200" class="map-region" />
+                        <text x="260" y="120" class="region-label">North Suburbs</text>
+                    </g>
+                    
+                    <!-- Western Suburbs -->
+                    <g onclick="showRegion('west')">
+                        <rect x="20" y="240" width="480" height="180" class="map-region" />
+                        <text x="260" y="330" class="region-label">Western Suburbs</text>
+                    </g>
+
+                    <!-- Palos / Southwest -->
+                    <g onclick="showRegion('palos')">
+                        <rect x="20" y="440" width="480" height="140" class="map-region" />
+                        <text x="260" y="510" class="region-label">Palos / Southwest</text>
+                    </g>
+
+                    <!-- Chicago / Lakefront -->
+                    <g onclick="showRegion('chicago')">
+                        <rect x="520" y="20" width="260" height="560" class="map-region" />
+                        <text x="650" y="300" class="region-label" style="writing-mode: tb;">Chicago / Lakefront</text>
+                    </g>
+                </svg>
+            </div>
+            <p class="mt-8 font-mono text-sm uppercase font-bold tracking-widest text-center text-swiss-black">
+                Select a sector above to view active trail telemetry.
+            </p>
+        </section>
+
+        <section id="view-table" class="view-hidden flex-grow flex flex-col">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+                <h2 id="region-header" class="text-2xl md:text-4xl font-bold uppercase tracking-tight">
+                    Region
+                </h2>
+                <button 
+                    onclick="showMap()" 
+                    class="bg-swiss-black text-swiss-white font-bold uppercase tracking-widest px-6 py-3 hover:bg-swiss-orange transition-colors duration-200 border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-swiss-black active:scale-95 text-sm md:text-base flex items-center gap-2"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    Back to Map
+                </button>
+            </div>
+
+            <div class="overflow-x-auto border-4 border-swiss-black bg-swiss-white flex-grow">
+                <table class="w-full text-left min-w-[800px]">
+                    <thead class="bg-swiss-black text-swiss-white uppercase font-bold text-xs md:text-sm tracking-wider">
+                        <tr>
+                            <th class="p-4 w-1/5">Designation</th>
+                            <th class="p-4 w-1/12">Dist.</th>
+                            <th class="p-4 w-1/6">Surface</th>
+                            <th class="p-4 w-1/4">Great Starting Point</th>
+                            <th class="p-4 w-1/3">Attractions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="trailTableBody" class="text-sm md:text-base font-medium">
+                        <!-- Trails injected via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="mt-16 pt-8 border-t-2 border-swiss-black flex flex-col md:flex-row justify-between items-center font-mono text-xs uppercase font-bold text-gray-500">
+    </footer>
+
+    <script>
+        // Tabular Data set enriched with new parameters and region assignments
+        const trailData = [
+            {
+                region: "west",
+                name: "Illinois Prairie Path (Main Stem)",
+                distance: "61.0mi",
+                surface: "Crushed Limestone",
+                start: "Maywood (1st Ave) or Wheaton (Volunteer Park)",
+                attractions: "Extensive prairie remnants, interconnected suburban towns, historic railway corridors."
+            },
+            {
+                region: "west",
+                name: "Great Western Trail",
+                distance: "12.0mi",
+                surface: "Crushed Limestone",
+                start: "Villa Park (Villa Ave)",
+                attractions: "Quiet, linear path through deep western suburbs, shaded canopies, minimal road crossings."
+            },
+            {
+                region: "west",
+                name: "★ Danada / Herrick Lake",
+                distance: "12.0mi+",
+                surface: "Crushed Limestone",
+                start: "Danada Equestrian Center",
+                attractions: "Equestrian trails, open prairie, Herrick Lake boat rentals, dense mature oak woodlands."
+            },
+            {
+                region: "west",
+                name: "Fox River Trail",
+                distance: "43.0mi",
+                surface: "Asphalt / Limestone",
+                start: "Fabyan Forest Preserve (Batavia)",
+                attractions: "Scenic river views, historic downtowns (Geneva, St. Charles), Fabyan Windmill."
+            },
+            {
+                region: "palos",
+                name: "Palos Trail System",
+                distance: "40.0mi+",
+                surface: "Singletrack / Dirt / Gravel",
+                start: "Maple Lake (Bullfrog Lake Grove)",
+                attractions: "Significant elevation changes, deep ravines, sloughs, premier regional mountain biking."
+            },
+            {
+                region: "palos",
+                name: "Waterfall Glen",
+                distance: "9.5mi",
+                surface: "Crushed Limestone",
+                start: "Cass Ave Parking Lot",
+                attractions: "Rocky Glen waterfall, undulating terrain circling Argonne National Laboratory, pine forests."
+            },
+            {
+                region: "palos",
+                name: "★ Centennial Trail / I&M Canal",
+                distance: "20.0mi+",
+                surface: "Asphalt / Limestone",
+                start: "Willow Springs Woods",
+                attractions: "Industrial canal views, barges, flat and fast riding parallel to the Des Plaines River."
+            },
+            {
+                region: "north",
+                name: "Des Plaines River Trail",
+                distance: "31.4mi",
+                surface: "Gravel / Dirt",
+                start: "Allison Woods (Northbrook) or Half Day Preserve",
+                attractions: "Deep floodplains, dense riparian forests, continuous unpaved riding through Lake County."
+            },
+            {
+                region: "north",
+                name: "Skokie Valley Bike Path",
+                distance: "12.2mi",
+                surface: "Asphalt",
+                start: "Rockland Rd (Lake Bluff)",
+                attractions: "High-speed, long straightaways following a high-voltage power line corridor, adjacent marshes."
+            },
+            {
+                region: "north",
+                name: "★ North Branch Trail",
+                distance: "20.0mi",
+                surface: "Asphalt",
+                start: "Caldwell Woods (Chicago) or Chicago Botanic Garden",
+                attractions: "Skokie Lagoons, meandering forested paths, seamless connection from city to botanic gardens."
+            },
+            {
+                region: "chicago",
+                name: "★ Chicago Lakefront Trail",
+                distance: "18.5mi",
+                surface: "Asphalt",
+                start: "Navy Pier (Midpoint) or Ardmore Ave (North Terminus)",
+                attractions: "Unmatched skyline views, Lake Michigan beaches, Museum Campus, separated bike/pedestrian paths."
+            },
+            {
+                region: "chicago",
+                name: "Bloomingdale Trail (The 606)",
+                distance: "2.7mi",
+                surface: "Asphalt (Rubberized edges)",
+                start: "Walsh Park (East) or Ridgeway Trailhead (West)",
+                attractions: "Elevated parkway, art installations, uninterrupted riding above city streets."
+            },
+            {
+                region: "chicago",
+                name: "Burnham Greenway",
+                distance: "6.0mi",
+                surface: "Asphalt",
+                start: "Eggers Grove",
+                attractions: "Industrial heritage, marshes, connection to Wolf Lake and the deep southeast side."
+            }
+        ];
+
+        const regionNames = {
+            'north': 'North Suburbs',
+            'west': 'Western Suburbs',
+            'palos': 'Palos / Southwest',
+            'chicago': 'Chicago / Lakefront'
+        };
+
+        const viewMap = document.getElementById('view-map');
+        const viewTable = document.getElementById('view-table');
+        const tbody = document.getElementById('trailTableBody');
+        const regionHeader = document.getElementById('region-header');
+        const mainTitle = document.getElementById('main-title');
+
+        function showMap() {
+            viewTable.classList.add('view-hidden');
+            viewMap.classList.remove('view-hidden');
+            mainTitle.innerHTML = 'Where Do<br />You Want<br />To Bike?';
+        }
+
+        function showRegion(regionId) {
+            viewMap.classList.add('view-hidden');
+            viewTable.classList.remove('view-hidden');
+            
+            regionHeader.textContent = regionNames[regionId];
+            
+            renderTable(regionId);
+        }
+
+        function renderTable(regionId) {
+            tbody.innerHTML = '';
+            const filteredData = trailData.filter(t => t.region === regionId);
+            
+            // Sort alphabetically for structural consistency
+            filteredData.sort((a, b) => a.name.localeCompare(b.name));
+
+            if (filteredData.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="5" class="p-8 text-center text-swiss-black font-mono font-bold bg-gray-100">
+                            ERR: NO TRAILS FOUND IN DESIGNATED SECTOR.
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            filteredData.forEach(trail => {
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-gray-100 transition-colors duration-150';
+                
+                tr.innerHTML = `
+                    <td class="p-4 font-bold border-2 border-swiss-black text-swiss-black align-top">
+                        ${trail.name.toUpperCase()}
+                    </td>
+                    <td class="p-4 font-mono font-bold text-swiss-orange border-2 border-swiss-black align-top">
+                        ${trail.distance}
+                    </td>
+                    <td class="p-4 font-mono text-xs md:text-sm border-2 border-swiss-black align-top uppercase">
+                        ${trail.surface}
+                    </td>
+                    <td class="p-4 border-2 border-swiss-black align-top">
+                        <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(trail.start + ', IL')}" target="_blank" rel="noopener noreferrer" class="swiss-link">
+                            ${trail.start}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                        </a>
+                    </td>
+                    <td class="p-4 border-2 border-swiss-black align-top text-gray-700 font-medium">
+                        ${trail.attractions}
+                    </td>
+                `;
+                
+                tbody.appendChild(tr);
+            });
+        }
+    </script>
+</body>
+</html>
