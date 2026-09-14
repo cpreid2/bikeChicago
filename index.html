@@ -1,84 +1,345 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHICAGOLAND TRAILS ARCHIVE</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'swiss-orange': '#E34234',
-                        'swiss-black': '#111111',
-                        'swiss-white': '#F9F9F9'
-                    },
-                    fontFamily: {
-                        sans: ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
-                        mono: ['"Courier New"', 'Courier', 'monospace']
-                    }
+    <title>Chicagoland Bike Trails | Where to Bike in Chicago and the Suburbs</title>
+    <meta name="description" content="A directory of bike trails in Chicago and the Chicagoland suburbs — Lakefront Trail, Prairie Path, Palos, North Branch, Fox River, and more, with distances, surfaces, and starting points.">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="author" content="bikeChicago">
+    <meta name="geo.region" content="US-IL">
+    <meta name="geo.placename" content="Chicago">
+    <meta name="geo.position" content="41.8781;-87.6298">
+    <meta name="ICBM" content="41.8781, -87.6298">
+    <meta name="theme-color" content="#111111">
+    <link rel="canonical" href="https://cpreid2.github.io/bikeChicago/">
+    <link rel="sitemap" type="application/xml" href="https://cpreid2.github.io/bikeChicago/sitemap.xml">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Chicagoland Trails Archive">
+    <meta property="og:title" content="Chicagoland Bike Trails | Where to Bike in Chicago and the Suburbs">
+    <meta property="og:description" content="A simple directory of bicycle trails across Chicago, the North Shore, western suburbs, and Palos — with starting points mapped to Google.">
+    <meta property="og:url" content="https://cpreid2.github.io/bikeChicago/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Chicagoland Bike Trails | Where to Bike in Chicago">
+    <meta name="twitter:description" content="Bike trails in Chicago and the Chicagoland suburbs, with distances, surfaces, and starting points.">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": "https://cpreid2.github.io/bikeChicago/#website",
+                "url": "https://cpreid2.github.io/bikeChicago/",
+                "name": "Chicagoland Trails Archive",
+                "alternateName": ["Where Do You Want To Bike?", "bikeChicago"],
+                "description": "A directory of bicycle trails in Chicago and the Chicagoland suburbs, with surfaces, distances, and starting points.",
+                "inLanguage": "en-US",
+                "about": { "@id": "https://cpreid2.github.io/bikeChicago/#place" }
+            },
+            {
+                "@type": "Place",
+                "@id": "https://cpreid2.github.io/bikeChicago/#place",
+                "name": "Chicagoland",
+                "alternateName": ["Chicago metropolitan area", "Chicago suburbs"],
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Chicago",
+                    "addressRegion": "IL",
+                    "addressCountry": "US"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": 41.8781,
+                    "longitude": -87.6298
+                },
+                "containedInPlace": {
+                    "@type": "State",
+                    "name": "Illinois"
                 }
+            },
+            {
+                "@type": "CollectionPage",
+                "@id": "https://cpreid2.github.io/bikeChicago/#webpage",
+                "url": "https://cpreid2.github.io/bikeChicago/",
+                "name": "Where to Bike in Chicagoland",
+                "description": "Choose a Chicagoland sector — Chicago lakefront, North Suburbs, Western Suburbs, or Palos / Southwest — to browse local bike trails.",
+                "isPartOf": { "@id": "https://cpreid2.github.io/bikeChicago/#website" },
+                "about": { "@id": "https://cpreid2.github.io/bikeChicago/#place" },
+                "inLanguage": "en-US",
+                "mainEntity": { "@id": "https://cpreid2.github.io/bikeChicago/#traillist" }
+            },
+            {
+                "@type": "ItemList",
+                "@id": "https://cpreid2.github.io/bikeChicago/#traillist",
+                "name": "Chicagoland bike trails",
+                "numberOfItems": 13,
+                "itemListOrder": "https://schema.org/ItemListUnordered",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "item": {
+                            "@type": "SportsActivityLocation",
+                            "name": "Illinois Prairie Path (Main Stem)",
+                            "sport": "Cycling",
+                            "isAccessibleForFree": true,
+                            "description": "61-mile crushed limestone rail-trail through DuPage County prairie remnants, suburban towns, and historic railway corridors. Start at Timber Ridge Forest Preserve.",
+                            "address": { "@type": "PostalAddress", "addressLocality": "West Chicago", "addressRegion": "IL", "addressCountry": "US" },
+                            "geo": { "@type": "GeoCoordinates", "latitude": 41.8830, "longitude": -88.2190 },
+                            "sameAs": "https://en.wikipedia.org/wiki/Illinois_Prairie_Path"
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "item": {
+                            "@type": "SportsActivityLocation",
+                            "name": "Great Western Trail",
+                            "sport": "Cycling",
+                            "isAccessibleForFree": true,
+                            "description": "12-mile crushed limestone path through the western suburbs with shaded canopies and few road crossings. Start at Ackerman Park in Glen Ellyn.",
+                            "address": { "@type": "PostalAddress", "addressLocality": "Glen Ellyn", "addressRegion": "IL", "addressCountry": "US" },
+                            "geo": { "@type": "GeoCoordinates", "latitude": 41.8775, "longitude": -88.0648 }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "item": {
+                            "@type": "SportsActivityLocation",
+                            "name": "Danada / Herrick Lake",
+                            "sport": "Cycling",
+                            "isAccessibleForFree": true,
+                            "description": "Crushed limestone forest preserve loops with equestrian trails, prairie, Herrick Lake, and oak woodlands. Start at Danada Equestrian Center in Wheaton.",
+                            "address": { "@type": "PostalAddress", "addressLocality": "Wheaton", "addressRegion": "IL", "addressCountry": "US" },
+                            "geo": { "@type": "GeoCoordinates", "latitude": 41.8312, "longitude": -88.1165 }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 4,
+                        "item": {
+                            "@type": "SportsActivityLocation",
+                            "name": "Fox River Trail",
+                            "sport": "Cycling",
+                            "isAccessibleForFree": true,
+                            "description": "43-mile asphalt and limestone river trail through Geneva, St. Charles, and Batavia, including the Fabyan Windmill. Start at Fabyan Forest Preserve.",
+                            "address": { "@type": "PostalAddress", "addressLocality": "Batavia", "addressRegion": "IL", "addressCountry": "US" },
+                            "geo": { "@type": "GeoCoordinates", "latitude": 41.8710, "longitude": -88.3117 },
+                            "sameAs": "https://en.wikipedia.org/wiki/Fox_River_Trail_(Illinois)"
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 5,
+                        "item": {
+                            "@type": "SportsActivityLocation",
+                            "name": "Palos Trail System",
+                            "sport": "Mountain biking",
+                            "isAccessibleForFree": true,
+                            "description": "40-plus miles of singletrack, dirt, and gravel in the Palos forest preserves with ravines, sloughs, and elevation. Start at Maple Lake in Palos Park.",
+                            "address": { "@type": "PostalAddress", "addressLocality": "Palos Park", "addressRegion": "IL", "addressCountry": "US" },
+                            "geo": { "@type": "GeoCoordinates", "latitude": 41.6872, "longitude": -87.8858 }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 6,
+                        "item": {
+                            "@type": "SportsActivityLocation",
+                            "name": "Waterfall Glen",
+                            "sport": "Cycling",
+                            "isAccessibleForFree": true,
+                            "description": "9.5-mile crushed limestone loop around Argonne National Laboratory with Rocky Glen waterfall, pine forests, and rolling terrain.",
+                            "address": { "@type": "PostalAddress", "addressLocality": "Darien", "addressRegion": "IL", "addressCountry": "US" },
+                            "geo": { "@type": "GeoCoordinates", "latitude": 41.7244, "longitude": -87.9770 },
+                            "sameAs": "https://en.wikipedia.org/wiki/Waterfall_Glen_Forest_Preserve"
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 7,
+                        "item": {
+                            "@type": "SportsActivityLocation",
+                            "name": "Centennial Trail / I&M Canal",
+                            "sport": "Cycling",
+                            "isAccessibleForFree": true,
+                            "description": "20-plus miles of asphalt and limestone along the Illinois and Michigan Canal and Des Plaines River. Starts at John Husar I&M Canal parking and Schneider's Passage.",
+                            "address": { "@type": "PostalAddress", "addressLocality": "Willow Springs", "addressRegion": "IL", "addressCountry": "US" },
+                            "geo": { "@type": "GeoCoordinates", "latitude": 41.7338, "longitude": -87.8775 },
+                            "sameAs": "https://en.wikipedia.org/wiki/Illinois_and_Michigan_Canal"
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 8,
+                        "item": {
+                            "@type": "SportsActivityLocation",
+                            "name": "Des Plaines River Trail",
+                            "sport": "Cycling",
+                            "isAccessibleForFree": true,
+                            "description": "31.4-mile gravel and dirt trail through Cook and Lake County floodplains. Starts at Allison Woods in Northbrook and Catherine Chevalier Woods.",
+                            "address": { "@type": "PostalAddress", "addressLocality": "Northbrook", "addressRegion": "IL", "addressCountry": "US" },
+                            "geo": { "@type": "GeoCoordinates", "latitude": 42.1275, "longitude": -87.8610 },
+                            "sameAs": "https://en.wikipedia.org/wiki/Des_Plaines_River_Trail"
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 9,
+                        "item": {
+                            "@type": "SportsActivityLocation",
+                            "name": "Skokie Valley Bike Path",
+                            "sport": "Cycling",
+                            "isAccessibleForFree": true,
+                            "description": "12.2-mile asphalt path along a power-line corridor in Lake County with long straightaways and adjacent marshes. Start at Skokie River Nature Preserve.",
+                            "address": { "@type": "PostalAddress", "addressLocality": "Lake Forest", "addressRegion": "IL", "addressCountry": "US" },
+                            "geo": { "@type": "GeoCoordinates", "latitude": 42.2472, "longitude": -87.8485 }
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 10,
+                        "item": {
+                            "@type": "SportsActivityLocation",
+                            "name": "North Branch Trail",
+                            "sport": "Cycling",
+                            "isAccessibleForFree": true,
+                            "description": "20-mile asphalt trail from Chicago to the Chicago Botanic Garden via Skokie Lagoons. Start at LaBagh Woods.",
+                            "address": { "@type": "PostalAddress", "addressLocality": "Chicago", "addressRegion": "IL", "addressCountry": "US" },
+                            "geo": { "@type": "GeoCoordinates", "latitude": 41.9759, "longitude": -87.7437 },
+                            "sameAs": "https://en.wikipedia.org/wiki/North_Branch_Trail"
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 11,
+                        "item": {
+                            "@type": "SportsActivityLocation",
+                            "name": "Chicago Lakefront Trail",
+                            "sport": "Cycling",
+                            "isAccessibleForFree": true,
+                            "description": "18.5-mile asphalt path along Lake Michigan with skyline views, beaches, and Museum Campus. Start at Recreation Drive.",
+                            "address": { "@type": "PostalAddress", "addressLocality": "Chicago", "addressRegion": "IL", "addressCountry": "US" },
+                            "geo": { "@type": "GeoCoordinates", "latitude": 41.8386, "longitude": -87.6075 },
+                            "sameAs": "https://en.wikipedia.org/wiki/Chicago_Lakefront_Trail"
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 12,
+                        "item": {
+                            "@type": "SportsActivityLocation",
+                            "name": "Bloomingdale Trail (The 606)",
+                            "sport": "Cycling",
+                            "isAccessibleForFree": true,
+                            "description": "2.7-mile elevated parkway on the northwest side of Chicago. Starts at Walsh Park on the east and the Ridgeway trailhead on the west.",
+                            "address": { "@type": "PostalAddress", "addressLocality": "Chicago", "addressRegion": "IL", "addressCountry": "US" },
+                            "geo": { "@type": "GeoCoordinates", "latitude": 41.9137, "longitude": -87.6663 },
+                            "sameAs": "https://en.wikipedia.org/wiki/The_606"
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 13,
+                        "item": {
+                            "@type": "SportsActivityLocation",
+                            "name": "Burnham Greenway",
+                            "sport": "Cycling",
+                            "isAccessibleForFree": true,
+                            "description": "6-mile asphalt trail on Chicago's southeast side connecting industrial corridors, marshes, Eggers Grove, and Wolf Lake.",
+                            "address": { "@type": "PostalAddress", "addressLocality": "Chicago", "addressRegion": "IL", "addressCountry": "US" },
+                            "geo": { "@type": "GeoCoordinates", "latitude": 41.6875, "longitude": -87.5322 }
+                        }
+                    }
+                ]
             }
-        }
+        ]
+    }
     </script>
     <style>
+        :root {
+            --swiss-orange: #E34234;
+            --swiss-black: #111111;
+            --swiss-white: #F9F9F9;
+            --gray-100: #f3f4f6;
+            --gray-500: #6b7280;
+            --gray-700: #374151;
+            --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            --font-mono: "Courier New", Courier, monospace;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            min-height: 100%;
+        }
+
         body {
-            background-color: #F9F9F9;
-            color: #111111;
+            background-color: var(--swiss-white);
+            color: var(--swiss-black);
+            font-family: var(--font-sans);
             font-smoothing: antialiased;
             -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
         }
-        
-        /* Enforce strict tabular borders */
+
         table {
             border-collapse: collapse;
             width: 100%;
         }
-        
+
         th, td {
-            border: 2px solid #111111;
-        }
-        
-        /* Custom selection color */
-        ::selection {
-            background-color: #E34234;
-            color: #F9F9F9;
+            border: 2px solid var(--swiss-black);
         }
 
-        /* Hide scrollbar for cleaner brutalist look */
+        ::selection {
+            background-color: var(--swiss-orange);
+            color: var(--swiss-white);
+        }
+
         ::-webkit-scrollbar {
             width: 8px;
         }
+
         ::-webkit-scrollbar-track {
-            background: #F9F9F9;
-            border-left: 2px solid #111111;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #111111;
+            background: var(--swiss-white);
+            border-left: 2px solid var(--swiss-black);
         }
 
-        /* SVG Map Interactivity Styles */
+        ::-webkit-scrollbar-thumb {
+            background: var(--swiss-black);
+        }
+
         .map-region {
-            fill: #F9F9F9;
-            stroke: #111111;
+            fill: var(--swiss-white);
+            stroke: var(--swiss-black);
             stroke-width: 4;
             transition: all 0.2s ease;
             cursor: pointer;
         }
-        
+
         .map-region:hover {
-            fill: #111111;
+            fill: var(--swiss-black);
         }
 
         .map-region:hover + .region-label,
         .region-label:hover {
-            fill: #F9F9F9;
+            fill: var(--swiss-white);
             pointer-events: none;
         }
 
         .region-label {
-            fill: #111111;
+            fill: var(--swiss-black);
             font-weight: bold;
             font-size: 24px;
             text-anchor: middle;
@@ -88,112 +349,488 @@
             transition: fill 0.2s ease;
             pointer-events: none;
         }
-        
-        /* Utility classes for SPA view switching */
+
         .view-hidden {
             display: none !important;
         }
 
-        /* Hyperlink styling for table */
         .swiss-link {
             display: inline-flex;
             align-items: center;
             gap: 0.25rem;
-            color: #111111;
+            color: var(--swiss-black);
             text-decoration: none;
-            border-bottom: 2px solid #111111;
+            border-bottom: 2px solid var(--swiss-black);
             transition: all 0.2s ease;
             font-weight: 700;
         }
-        
+
         .swiss-link:hover {
-            background-color: #E34234;
-            color: #F9F9F9;
-            border-bottom-color: #E34234;
+            background-color: var(--swiss-orange);
+            color: var(--swiss-white);
+            border-bottom-color: var(--swiss-orange);
+        }
+
+        .start-links {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .site-header {
+            margin-bottom: 2rem;
+            border-bottom: 4px solid var(--swiss-black);
+            padding-bottom: 2rem;
+        }
+
+        .header-inner {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        .main-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            letter-spacing: -0.05em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .lede {
+            margin-top: 1rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            max-width: 22rem;
+            line-height: 1.5;
+        }
+
+        .brand-mark {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            color: var(--swiss-black);
+        }
+
+        .brand-label {
+            font-size: 0.875rem;
+            font-weight: 700;
+            font-family: var(--font-mono);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-top: 0.5rem;
+        }
+
+        .site-main {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .view-map {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 64rem;
+            margin: 2rem auto;
+        }
+
+        .map-frame {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            max-height: 70vh;
+            position: relative;
+        }
+
+        .map-svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 20px 13px rgba(0, 0, 0, 0.03)) drop-shadow(0 8px 5px rgba(0, 0, 0, 0.08));
+        }
+
+        .view-table {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .table-toolbar {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+        }
+
+        .region-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -0.025em;
+        }
+
+        .btn-back {
+            background: var(--swiss-black);
+            color: var(--swiss-white);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid transparent;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background-color 0.2s ease, transform 0.15s ease;
+        }
+
+        .btn-back:hover {
+            background: var(--swiss-orange);
+        }
+
+        .btn-back:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--swiss-white), 0 0 0 4px var(--swiss-black);
+        }
+
+        .btn-back:active {
+            transform: scale(0.95);
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+            border: 4px solid var(--swiss-black);
+            background: var(--swiss-white);
+            height: fit-content;
+        }
+
+        .trail-table {
+            width: 100%;
+            text-align: left;
+            height: auto;
+        }
+
+        .trail-table thead {
+            background: var(--swiss-black);
+            color: var(--swiss-white);
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+
+        .trail-table th {
+            padding: 1rem;
+        }
+
+        .col-name { width: 20%; }
+        .col-dist { width: 8.333%; }
+        .col-surface { width: 16.666%; }
+        .col-start { width: 25%; }
+        .col-attractions { width: 33.333%; }
+
+        .trail-table tbody {
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .trail-row {
+            transition: background-color 0.15s ease;
+        }
+
+        .trail-row:hover {
+            background-color: var(--gray-100);
+        }
+
+        .cell {
+            padding: 1rem;
+            border: 2px solid var(--swiss-black);
+            vertical-align: top;
+        }
+
+        .cell-name {
+            font-weight: 700;
+            color: var(--swiss-black);
+        }
+
+        .cell-dist {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            color: var(--swiss-orange);
+        }
+
+        .cell-surface {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .cell-attractions {
+            color: var(--gray-700);
+            font-weight: 500;
+        }
+
+        .empty-row {
+            padding: 2rem;
+            text-align: center;
+            color: var(--swiss-black);
+            font-family: var(--font-mono);
+            font-weight: 700;
+            background: var(--gray-100);
+        }
+
+        .site-footer {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            clip-path: inset(50%);
+            white-space: nowrap;
+            border: 0;
+            pointer-events: none;
+        }
+
+        @media (min-width: 640px) {
+            .table-toolbar {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+
+        @media (min-width: 768px) {
+            body {
+                padding: 2rem;
+            }
+
+            .header-inner {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+
+            .main-title {
+                font-size: 4.5rem;
+            }
+
+            .region-title {
+                font-size: 2.25rem;
+            }
+
+            .btn-back {
+                font-size: 1rem;
+            }
+
+            .trail-table thead {
+                font-size: 0.875rem;
+            }
+
+            .trail-table tbody {
+                font-size: 1rem;
+            }
+
+            .cell-surface {
+                font-size: 0.875rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .main-title {
+                font-size: 6rem;
+            }
+        }
+
+        @media (max-width: 860px) {
+            .table-wrap {
+                overflow: visible;
+                border: none;
+                background: transparent;
+            }
+
+            .trail-table,
+            .trail-table tbody {
+                display: block;
+                width: 100%;
+            }
+
+            .trail-table thead {
+                display: none;
+            }
+
+            .trail-table tbody {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .trail-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                border: 4px solid var(--swiss-black);
+                background: var(--swiss-white);
+            }
+
+            .trail-table th,
+            .trail-table td,
+            .cell {
+                border: none;
+                width: auto;
+                min-width: 0;
+            }
+
+            .cell {
+                padding: 0.85rem 1rem;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.35rem;
+            }
+
+            .cell::before {
+                content: attr(data-label);
+                font-family: var(--font-mono);
+                font-size: 0.65rem;
+                font-weight: 700;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                color: var(--gray-500);
+            }
+
+            .cell-name {
+                grid-column: 1 / -1;
+                background: var(--swiss-black);
+                color: var(--swiss-white);
+                padding: 1rem;
+                font-size: 1.05rem;
+                line-height: 1.2;
+            }
+
+            .cell-name::before {
+                content: none;
+            }
+
+            .cell-dist {
+                border-right: 2px solid var(--swiss-black);
+                border-bottom: 2px solid var(--swiss-black);
+            }
+
+            .cell-surface {
+                border-bottom: 2px solid var(--swiss-black);
+                font-size: 0.75rem;
+            }
+
+            .cell-start {
+                grid-column: 1 / -1;
+                border-bottom: 2px solid var(--swiss-black);
+            }
+
+            .cell-attractions {
+                grid-column: 1 / -1;
+            }
+
+            .empty-row {
+                grid-column: 1 / -1;
+                border: none;
+            }
+
+            .swiss-link {
+                max-width: 100%;
+                overflow-wrap: anywhere;
+            }
         }
     </style>
 </head>
-<body class="p-4 md:p-8 min-h-screen flex flex-col font-sans">
+<body>
 
-    <header class="mb-8 border-b-4 border-swiss-black pb-8">
-        <div class="flex flex-col md:flex-row md:items-start justify-between gap-6">
+    <header class="site-header">
+        <div class="header-inner">
             <div>
-                <h1 class="text-4xl md:text-7xl lg:text-8xl font-bold tracking-tighter uppercase mb-2 leading-none" id="main-title">
+                <h1 class="main-title" id="main-title">
                     Where Do<br />You Want<br />To Bike?
                 </h1>
+                <p class="lede">Bike trails in Chicagoland area</p>
             </div>
-            <div class="flex flex-col items-center justify-end text-swiss-black">
-                <!-- Minimalistic Bike Icon -->
+            <div class="brand-mark">
                 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter">
                     <circle cx="5.5" cy="17.5" r="3.5"></circle>
                     <circle cx="18.5" cy="17.5" r="3.5"></circle>
                     <path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 11.5V14l-3-3 4-3 2 3h2"></path>
                 </svg>
-                <span class="text-sm font-bold font-mono tracking-widest uppercase mt-2">Chicagoland</span>
+                <span class="brand-label">Chicagoland</span>
             </div>
         </div>
     </header>
 
-    <main class="flex-grow flex flex-col">
-        <section id="view-map" class="flex-grow flex flex-col items-center justify-center w-full max-w-5xl mx-auto my-8">
-            <div class="w-full aspect-[4/3] max-h-[70vh] relative">
-                <svg viewBox="0 0 800 600" class="w-full h-full drop-shadow-xl" preserveAspectRatio="xMidYMid meet">
+    <main class="site-main">
+        <section id="view-map" class="view-map">
+            <div class="map-frame">
+                <svg viewBox="0 0 800 600" class="map-svg" preserveAspectRatio="xMidYMid meet" aria-label="Map of Chicagoland bike trail regions">
+                    <title>Map of Chicagoland bike trail regions</title>
+                    <desc>Choose North Suburbs, Western Suburbs, Palos and Southwest, or Chicago Lakefront to browse local bicycle trails.</desc>
                     <!-- North Suburbs -->
-                    <g onclick="showRegion('north')">
+                    <g onclick="showRegion('north')" role="button" tabindex="0" aria-label="North Suburbs bike trails" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showRegion('north')}">
                         <rect x="20" y="20" width="480" height="200" class="map-region" />
                         <text x="260" y="120" class="region-label">North Suburbs</text>
                     </g>
-                    
+
                     <!-- Western Suburbs -->
-                    <g onclick="showRegion('west')">
+                    <g onclick="showRegion('west')" role="button" tabindex="0" aria-label="Western Suburbs bike trails" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showRegion('west')}">
                         <rect x="20" y="240" width="480" height="180" class="map-region" />
                         <text x="260" y="330" class="region-label">Western Suburbs</text>
                     </g>
 
                     <!-- Palos / Southwest -->
-                    <g onclick="showRegion('palos')">
+                    <g onclick="showRegion('palos')" role="button" tabindex="0" aria-label="Palos and Southwest bike trails" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showRegion('palos')}">
                         <rect x="20" y="440" width="480" height="140" class="map-region" />
                         <text x="260" y="510" class="region-label">Palos / Southwest</text>
                     </g>
 
                     <!-- Chicago / Lakefront -->
-                    <g onclick="showRegion('chicago')">
+                    <g onclick="showRegion('chicago')" role="button" tabindex="0" aria-label="Chicago and Lakefront bike trails" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showRegion('chicago')}">
                         <rect x="520" y="20" width="260" height="560" class="map-region" />
                         <text x="650" y="300" class="region-label" style="writing-mode: tb;">Chicago / Lakefront</text>
                     </g>
                 </svg>
             </div>
-            <p class="mt-8 font-mono text-sm uppercase font-bold tracking-widest text-center text-swiss-black">
-                Select a sector above to view active trail telemetry.
-            </p>
         </section>
 
-        <section id="view-table" class="view-hidden flex-grow flex flex-col">
-            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
-                <h2 id="region-header" class="text-2xl md:text-4xl font-bold uppercase tracking-tight">
+        <section id="view-table" class="view-table view-hidden">
+            <div class="table-toolbar">
+                <h2 id="region-header" class="region-title">
                     Region
                 </h2>
-                <button 
-                    onclick="showMap()" 
-                    class="bg-swiss-black text-swiss-white font-bold uppercase tracking-widest px-6 py-3 hover:bg-swiss-orange transition-colors duration-200 border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-swiss-black active:scale-95 text-sm md:text-base flex items-center gap-2"
-                >
+                <button type="button" onclick="showMap()" class="btn-back">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
                     Back to Map
                 </button>
             </div>
 
-            <div class="overflow-x-auto border-4 border-swiss-black bg-swiss-white flex-grow">
-                <table class="w-full text-left min-w-[800px]">
-                    <thead class="bg-swiss-black text-swiss-white uppercase font-bold text-xs md:text-sm tracking-wider">
+            <div class="table-wrap">
+                <table class="trail-table">
+                    <thead>
                         <tr>
-                            <th class="p-4 w-1/5">Designation</th>
-                            <th class="p-4 w-1/12">Dist.</th>
-                            <th class="p-4 w-1/6">Surface</th>
-                            <th class="p-4 w-1/4">Great Starting Point</th>
-                            <th class="p-4 w-1/3">Attractions</th>
+                            <th class="col-name">Designation</th>
+                            <th class="col-dist">Dist.</th>
+                            <th class="col-surface">Surface</th>
+                            <th class="col-start">Great Starting Point</th>
+                            <th class="col-attractions">Attractions</th>
                         </tr>
                     </thead>
-                    <tbody id="trailTableBody" class="text-sm md:text-base font-medium">
+                    <tbody id="trailTableBody">
                         <!-- Trails injected via JS -->
                     </tbody>
                 </table>
@@ -201,18 +838,57 @@
         </section>
     </main>
 
-    <footer class="mt-16 pt-8 border-t-2 border-swiss-black flex flex-col md:flex-row justify-between items-center font-mono text-xs uppercase font-bold text-gray-500">
+    <footer class="site-footer" aria-hidden="true" inert>
+        <p>Chicagoland bike trail directory. Chicago, Cook County, DuPage County, and Lake County, Illinois, United States.</p>
+        <div>
+            <h2>Chicago / Lakefront</h2>
+            <ul>
+                <li>Chicago Lakefront Trail</li>
+                <li>Bloomingdale Trail (The 606)</li>
+                <li>Burnham Greenway</li>
+            </ul>
+        </div>
+        <div>
+            <h2>North Suburbs</h2>
+            <ul>
+                <li>Des Plaines River Trail</li>
+                <li>Skokie Valley Bike Path</li>
+                <li>North Branch Trail</li>
+            </ul>
+        </div>
+        <div>
+            <h2>Western Suburbs</h2>
+            <ul>
+                <li>Illinois Prairie Path</li>
+                <li>Great Western Trail</li>
+                <li>Danada / Herrick Lake</li>
+                <li>Fox River Trail</li>
+            </ul>
+        </div>
+        <div>
+            <h2>Palos / Southwest</h2>
+            <ul>
+                <li>Palos Trail System</li>
+                <li>Waterfall Glen</li>
+                <li>Centennial Trail / I&amp;M Canal</li>
+            </ul>
+        </div>
     </footer>
 
+    <noscript>
+        <p>This directory lists bicycle trails in Chicago and the Chicagoland suburbs of Illinois. Trails include the Chicago Lakefront Trail, Bloomingdale Trail (The 606), Burnham Greenway, Des Plaines River Trail, Skokie Valley Bike Path, North Branch Trail, Illinois Prairie Path, Great Western Trail, Danada / Herrick Lake, Fox River Trail, Palos Trail System, Waterfall Glen, and Centennial Trail / I&amp;M Canal.</p>
+    </noscript>
+
     <script>
-        // Tabular Data set enriched with new parameters and region assignments
         const trailData = [
             {
                 region: "west",
                 name: "Illinois Prairie Path (Main Stem)",
                 distance: "61.0mi",
                 surface: "Crushed Limestone",
-                start: "Maywood (1st Ave) or Wheaton (Volunteer Park)",
+                starts: [
+                    { label: "Timber Ridge Forest Preserve", query: "Timber Ridge Forest Preserve, IL" }
+                ],
                 attractions: "Extensive prairie remnants, interconnected suburban towns, historic railway corridors."
             },
             {
@@ -220,7 +896,9 @@
                 name: "Great Western Trail",
                 distance: "12.0mi",
                 surface: "Crushed Limestone",
-                start: "Villa Park (Villa Ave)",
+                starts: [
+                    { label: "Ackerman Park", query: "Ackerman Park, Glen Ellyn, IL" }
+                ],
                 attractions: "Quiet, linear path through deep western suburbs, shaded canopies, minimal road crossings."
             },
             {
@@ -228,7 +906,9 @@
                 name: "★ Danada / Herrick Lake",
                 distance: "12.0mi+",
                 surface: "Crushed Limestone",
-                start: "Danada Equestrian Center",
+                starts: [
+                    { label: "Danada Equestrian Center", query: "Danada Equestrian Center, Wheaton, IL" }
+                ],
                 attractions: "Equestrian trails, open prairie, Herrick Lake boat rentals, dense mature oak woodlands."
             },
             {
@@ -236,7 +916,9 @@
                 name: "Fox River Trail",
                 distance: "43.0mi",
                 surface: "Asphalt / Limestone",
-                start: "Fabyan Forest Preserve (Batavia)",
+                starts: [
+                    { label: "Fabyan Forest Preserve (Batavia)", query: "Fabyan Forest Preserve, Batavia, IL" }
+                ],
                 attractions: "Scenic river views, historic downtowns (Geneva, St. Charles), Fabyan Windmill."
             },
             {
@@ -244,7 +926,9 @@
                 name: "Palos Trail System",
                 distance: "40.0mi+",
                 surface: "Singletrack / Dirt / Gravel",
-                start: "Maple Lake (Bullfrog Lake Grove)",
+                starts: [
+                    { label: "Maple Lake (Bullfrog Lake Grove)", query: "Maple Lake, Palos Park, IL" }
+                ],
                 attractions: "Significant elevation changes, deep ravines, sloughs, premier regional mountain biking."
             },
             {
@@ -252,7 +936,9 @@
                 name: "Waterfall Glen",
                 distance: "9.5mi",
                 surface: "Crushed Limestone",
-                start: "Cass Ave Parking Lot",
+                starts: [
+                    { label: "Waterfall Glen Forest Preserve Waterfall Parking Lot", query: "Waterfall Glen Forest Preserve Waterfall Parking Lot, IL" }
+                ],
                 attractions: "Rocky Glen waterfall, undulating terrain circling Argonne National Laboratory, pine forests."
             },
             {
@@ -260,7 +946,10 @@
                 name: "★ Centennial Trail / I&M Canal",
                 distance: "20.0mi+",
                 surface: "Asphalt / Limestone",
-                start: "Willow Springs Woods",
+                starts: [
+                    { label: "John Husar I&M Canal – Bicycle Trail Parking Lot", query: "John Husar I&M Canal Bicycle Trail Parking Lot, IL" },
+                    { label: "Centennial Trail - Schneider's Passage", query: "Centennial Trail Schneider's Passage, IL" }
+                ],
                 attractions: "Industrial canal views, barges, flat and fast riding parallel to the Des Plaines River."
             },
             {
@@ -268,7 +957,10 @@
                 name: "Des Plaines River Trail",
                 distance: "31.4mi",
                 surface: "Gravel / Dirt",
-                start: "Allison Woods (Northbrook) or Half Day Preserve",
+                starts: [
+                    { label: "Allison Woods (Northbrook)", query: "Allison Woods, Northbrook, IL" },
+                    { label: "Catherine Chevalier Woods", query: "Catherine Chevalier Woods, IL" }
+                ],
                 attractions: "Deep floodplains, dense riparian forests, continuous unpaved riding through Lake County."
             },
             {
@@ -276,7 +968,9 @@
                 name: "Skokie Valley Bike Path",
                 distance: "12.2mi",
                 surface: "Asphalt",
-                start: "Rockland Rd (Lake Bluff)",
+                starts: [
+                    { label: "Skokie River Nature Preserve", query: "Skokie River Nature Preserve, IL" }
+                ],
                 attractions: "High-speed, long straightaways following a high-voltage power line corridor, adjacent marshes."
             },
             {
@@ -284,7 +978,9 @@
                 name: "★ North Branch Trail",
                 distance: "20.0mi",
                 surface: "Asphalt",
-                start: "Caldwell Woods (Chicago) or Chicago Botanic Garden",
+                starts: [
+                    { label: "LaBagh Woods", query: "LaBagh Woods, Chicago, IL" }
+                ],
                 attractions: "Skokie Lagoons, meandering forested paths, seamless connection from city to botanic gardens."
             },
             {
@@ -292,7 +988,9 @@
                 name: "★ Chicago Lakefront Trail",
                 distance: "18.5mi",
                 surface: "Asphalt",
-                start: "Navy Pier (Midpoint) or Ardmore Ave (North Terminus)",
+                starts: [
+                    { label: "Recreation Drive", query: "Recreation Drive, Chicago, IL" }
+                ],
                 attractions: "Unmatched skyline views, Lake Michigan beaches, Museum Campus, separated bike/pedestrian paths."
             },
             {
@@ -300,7 +998,10 @@
                 name: "Bloomingdale Trail (The 606)",
                 distance: "2.7mi",
                 surface: "Asphalt (Rubberized edges)",
-                start: "Walsh Park (East) or Ridgeway Trailhead (West)",
+                starts: [
+                    { label: "Walsh Park (East)", query: "Walsh Park, Chicago, IL" },
+                    { label: "Ridgeway Trailhead (West)", query: "Ridgeway Trailhead, The 606, Chicago, IL" }
+                ],
                 attractions: "Elevated parkway, art installations, uninterrupted riding above city streets."
             },
             {
@@ -308,7 +1009,9 @@
                 name: "Burnham Greenway",
                 distance: "6.0mi",
                 surface: "Asphalt",
-                start: "Eggers Grove",
+                starts: [
+                    { label: "Eggers Grove", query: "Eggers Grove, Chicago, IL" }
+                ],
                 attractions: "Industrial heritage, marshes, connection to Wolf Lake and the deep southeast side."
             }
         ];
@@ -330,28 +1033,29 @@
             viewTable.classList.add('view-hidden');
             viewMap.classList.remove('view-hidden');
             mainTitle.innerHTML = 'Where Do<br />You Want<br />To Bike?';
+            history.replaceState(null, '', window.location.pathname + window.location.search);
         }
 
         function showRegion(regionId) {
             viewMap.classList.add('view-hidden');
             viewTable.classList.remove('view-hidden');
-            
+
             regionHeader.textContent = regionNames[regionId];
-            
+
             renderTable(regionId);
+            history.replaceState(null, '', '#' + regionId);
         }
 
         function renderTable(regionId) {
             tbody.innerHTML = '';
             const filteredData = trailData.filter(t => t.region === regionId);
-            
-            // Sort alphabetically for structural consistency
+
             filteredData.sort((a, b) => a.name.localeCompare(b.name));
 
             if (filteredData.length === 0) {
                 tbody.innerHTML = `
                     <tr>
-                        <td colspan="5" class="p-8 text-center text-swiss-black font-mono font-bold bg-gray-100">
+                        <td colspan="5" class="empty-row">
                             ERR: NO TRAILS FOUND IN DESIGNATED SECTOR.
                         </td>
                     </tr>
@@ -361,31 +1065,42 @@
 
             filteredData.forEach(trail => {
                 const tr = document.createElement('tr');
-                tr.className = 'hover:bg-gray-100 transition-colors duration-150';
-                
+                tr.className = 'trail-row';
+
+                const startLinks = trail.starts.map(start => `
+                    <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(start.query)}" target="_blank" rel="noopener noreferrer" class="swiss-link">
+                        ${start.label}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    </a>
+                `).join('');
+
                 tr.innerHTML = `
-                    <td class="p-4 font-bold border-2 border-swiss-black text-swiss-black align-top">
+                    <td class="cell cell-name" data-label="Designation">
                         ${trail.name.toUpperCase()}
                     </td>
-                    <td class="p-4 font-mono font-bold text-swiss-orange border-2 border-swiss-black align-top">
+                    <td class="cell cell-dist" data-label="Dist.">
                         ${trail.distance}
                     </td>
-                    <td class="p-4 font-mono text-xs md:text-sm border-2 border-swiss-black align-top uppercase">
+                    <td class="cell cell-surface" data-label="Surface">
                         ${trail.surface}
                     </td>
-                    <td class="p-4 border-2 border-swiss-black align-top">
-                        <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(trail.start + ', IL')}" target="_blank" rel="noopener noreferrer" class="swiss-link">
-                            ${trail.start}
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                        </a>
+                    <td class="cell cell-start" data-label="Great Starting Point">
+                        <div class="start-links">
+                            ${startLinks}
+                        </div>
                     </td>
-                    <td class="p-4 border-2 border-swiss-black align-top text-gray-700 font-medium">
+                    <td class="cell cell-attractions" data-label="Attractions">
                         ${trail.attractions}
                     </td>
                 `;
-                
+
                 tbody.appendChild(tr);
             });
+        }
+
+        const initialRegion = window.location.hash.replace('#', '');
+        if (regionNames[initialRegion]) {
+            showRegion(initialRegion);
         }
     </script>
 </body>
